@@ -25,7 +25,8 @@ protected:
   // using Vector<Data>::???;
   using Vector<Data>::size;
   using Vector<Data>::elem;
-
+  int head = 0;
+  int tail = 0;
   // ...
 
 public:
@@ -34,54 +35,56 @@ public:
   QueueVec() = default;
 
   // Copy constructor
-  // QueueVec(argument);
+  QueueVec(const QueueVec& queue);
 
   // Move constructor
-  // QueueVec(argument);
+  QueueVec(QueueVec&& queue)noexcept ;
 
-  /* ************************************************************************ */
+
+    /* ************************************************************************ */
 
   // Destructor
-  // ~QueueVec() specifier;
+  ~QueueVec() = default;
 
   /* ************************************************************************ */
 
   // Copy assignment
-  // type operator=(argument);
+  QueueVec& operator=(const QueueVec&);
 
   // Move assignment
-  // type operator=(argument);
+  QueueVec& operator=(QueueVec&&);
 
-  /* ************************************************************************ */
+
+    /* ************************************************************************ */
 
   // Comparison operators
-  // type operator==(argument) specifiers;
-  // type operator!=(argument) specifiers;
+  bool operator==(QueueVec&) ;
+  bool operator!=(QueueVec&) ;
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Queue)
 
-  // type Head() specifiers; // Override Queue member (might throw std::length_error)
-  // type Dequeue() specifiers; // Override Queue member (might throw std::length_error)
-  // type HeadNDequeue() specifiers; // Override Queue member (might throw std::length_error)
-  // type Enqueue(argument) specifiers; // Override Queue member
-  // type Enqueue(argument) specifiers; // Override Queue member
+  Data Head() const override; // Override Queue member (might throw std::length_error)
+  void Dequeue() override; // Override Queue member (might throw std::length_error)
+  Data HeadNDequeue() override; // Override Queue member (might throw std::length_error)
+  void Enqueue(Data& item); // Override Queue member
+  void Enqueue(Data&& item); // Override Queue member
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
 
-  // type Empty() specifiers; // Override Container member
+  using Container::Empty; // Override Container member
 
-  // type Size() specifiers; // Override Container member
+  using Container::Size; // Override Container member
 
-  // type Clear() specifiers; // Override Container member
+  using Container::Clear;  // Override Container member
 
 protected:
 
-  // type Expand() specifiers; // Accessory function
-  // type Reduce() specifiers; // Accessory function
+  void Expand(); // Accessory function
+  void Reduce(); // Accessory function
 
 };
 

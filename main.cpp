@@ -10,11 +10,14 @@
 
 
 using namespace lasd;
+
 int main(){
 
 StackVec<int> stackvec(5);
 stackvec.Push(1);
-stackvec.Push(2);
+
+
+std::cout<<"Size del vettore : "<<stackvec.Size()<<"\n\n";
 
 std::cout<<"\n\nTopNPop dello stack : "<<stackvec.TopNPop()<<"\n\n";
 std::cout<<"\n\nTop dello stack : "<<stackvec.Top()<<"\n\n";
@@ -22,6 +25,7 @@ std::cout<<"\n\nTop dello stack : "<<stackvec.Top()<<"\n\n";
 stackvec.Push(3);
 std::cout<<"\n\nTop dello stack : "<<stackvec.Top()<<"\n\n";
 
+std::cout<<"Size del vettore : "<<stackvec.Size()<<"\n\n";
 
 
 

@@ -52,18 +52,21 @@ void StackVec<Data>::Push(Data&& item) noexcept{
         this->elem[this->index] = std::move(item);
         this->index++;
     }
-
-    if(this->index = this->size){
-        Expand();
-    } else if(this->index=this->size/4) Reduce();
+    else throw std::length_error("La Size del vettore e' 0. Allocare memoria al vettore.");
+    if(this->index == this->size) Expand();
+    else if(this->index==this->size/4) Reduce();
 }
 
 
 template <typename Data>
 void StackVec<Data>::Pop() {
-this->elem[index -1] = Data();
-    this->index--;
+    if (this->index -1 >= 0) {
 
+        this->elem[index - 1] = Data();
+        this->index--;
+        if (this->index == this->size / 4) Reduce();
+    }
+    else throw std::length_error("Non ci sono elementi nello stack.");
 }
 
 //FUNZIONE DI TOP DALLO STACK
