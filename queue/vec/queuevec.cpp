@@ -5,6 +5,7 @@
 
 // ...
 
+
 /** CONSTRUCTOR QUEUEVEC **/
 
 template <typename Data>
@@ -46,5 +47,9 @@ bool QueueVec<Data>:: operator!=(QueueVec& queue){
 
 template <typename Data>
 void  QueueVec<Data>::Enqueue(Data& item){
+
+    this->elem[tail] = item;
+    tail = (tail + 1)%(this->size)
+
 
 }
