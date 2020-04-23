@@ -7,22 +7,7 @@
 void mytest();
 
 
-void GeneralTestListe();
-void GeneralTestVettori();
 
-
-void TestVectorString();
-void TestVectorInt();
-void TestVectorFloat();
-void TestVectorDouble();
-
-void TestListInt();
-void TestListString();
-void TestListFloat();
-void TestListDouble();
-
-void TestListe();
-void TestVettori();
 // ...
 
 
@@ -35,5 +20,5 @@ void TestVettori();
 
 /* ************************************************************************** */
 
-#include "test.cpp"
+//#include "test.cpp"
 #endif

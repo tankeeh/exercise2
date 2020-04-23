@@ -11,7 +11,7 @@ float FloatValueGenerator();
 
 std::string CharValueGenerator();
 
-//uint UIntValueGenerator();
+
 
 
 #endif //ESERCIZIO1_RANDOMVALUES_HPP

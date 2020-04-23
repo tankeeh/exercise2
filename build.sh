@@ -1,4 +1,3 @@
-
 #! /bin/bash
 
-g++ -O3 -o main zmytest/test.cpp zlasdtest/test.cpp main.cpp
+g++ -O3 -o main zlasdtest/test.cpp zmytest/test.cpp zmytest/test.hpp  main.cpp

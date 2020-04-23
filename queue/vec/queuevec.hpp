@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class QueueVec: virtual public Queue<Data>, virtual protected Vector<Data> { // Should extend Queue<Data> and Vector<Data>
+class QueueVec: virtual public Queue<Data>,protected Vector<Data> { // Should extend Queue<Data> and Vector<Data>
 
 private:
 
@@ -32,7 +32,7 @@ protected:
 public:
 
   // Default constructor
-  QueueVec() = default;
+  QueueVec();
 
   // Copy constructor
   QueueVec(const QueueVec& queue);
@@ -75,9 +75,9 @@ public:
 
   // Specific member functions (inherited from Container)
 
-  using Container::Empty; // Override Container member
+  bool Empty() const noexcept override ; // Override Container member
 
-  using Container::Size; // Override Container member
+  int Size()const noexcept override ; // Override Container member
 
   using Container::Clear;  // Override Container member
 

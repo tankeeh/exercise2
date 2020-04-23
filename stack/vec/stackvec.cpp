@@ -19,10 +19,14 @@ void StackVec<Data>:: Reduce(){
 /** CONSTRUCTORS DEL VETTORE **/
 //COPY CONSTRUCTOR DELLO STACK VETTORE
 template <typename Data>
-StackVec<Data>::StackVec(const StackVec& stack):Vector<Data>(stack){}
+StackVec<Data>::StackVec(const StackVec& stack):Vector<Data>(stack){
+    this->index = stack.index;
+}
 
 template <typename Data>
-StackVec<Data>::StackVec(StackVec&& stack) noexcept:Vector<Data>(std::move(stack)){}
+StackVec<Data>::StackVec(StackVec&& stack) noexcept:Vector<Data>(std::move(stack)){
+    this->index = stack.index;
+}
 
 
 template <typename Data>
@@ -31,30 +35,31 @@ StackVec<Data>::StackVec(unsigned int newsize):Vector<Data>(newsize){
 
 
 template <typename Data>
-void StackVec<Data>::Push(Data& item) noexcept{
+void StackVec<Data>::Push(Data& item){
 
 if (this->index - 1 >= 0){
 this->elem[this->index] = item;
 this->index++;
 }
+else throw std::length_error("La Size del vettore e' 0. Allocare memoria al vettore.");
 
-if(this->index = this->size){
-    Expand();
-} else if(this->index=this->size/4) Reduce();
+if(this->index == this->size/2) Expand();
+ else if(this->index == this->size/4) Reduce();
 
 }
 
 
 template <typename Data>
-void StackVec<Data>::Push(Data&& item) noexcept{
+void StackVec<Data>::Push(Data&& item){
 
-    if (this->elem!= nullptr){
+    if (this->index - 1 >= 0){
         this->elem[this->index] = std::move(item);
         this->index++;
     }
     else throw std::length_error("La Size del vettore e' 0. Allocare memoria al vettore.");
-    if(this->index == this->size) Expand();
-    else if(this->index==this->size/4) Reduce();
+
+    if(this->index == this->size/2) Expand();
+    else if(this->index == this->size/4) Reduce();
 }
 
 
@@ -116,6 +121,26 @@ bool StackVec<Data>:: operator==(StackVec& stack){
 template <typename Data>
 bool StackVec<Data>:: operator!=(StackVec& stack){
     return Vector<Data>::operator!=(stack);
+}
+
+
+/**OPERAZIONI OVERRIDE DA CONTAINER**/
+
+
+template <typename Data>
+bool StackVec<Data>::Empty() const noexcept {
+    return ( this->index == 0);
+}
+
+template <typename Data>
+int StackVec<Data>::Size() const noexcept {
+    return this->index;
+}
+
+template <typename Data>
+void StackVec<Data>::Clear(){
+    Vector<Data>::Clear();
+    this->index = 0;
 }
 
 

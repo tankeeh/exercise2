@@ -25,7 +25,7 @@ protected:
   // using Vector<Data>::???;
   using Vector<Data>::size;
   using Vector<Data>::elem;
-  int index = 0;
+  unsigned int index = 0;
   // ...
 
 public:
@@ -71,18 +71,18 @@ public:
     Data Top() const override ; // Override Stack member (might throw std::length_error)
     void Pop() override ; // Override Stack member (might throw std::length_error)
     Data TopNPop() override ; // Override Stack member (might throw std::length_error)
-    void Push(Data& item) noexcept override; // Override Stack member
-    void Push(Data&& item) noexcept override;
+    void Push(Data& item)  override; // Override Stack member
+    void Push(Data&& item) override;
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
 
-  using Container::Empty; // Override Container member
+  bool Empty()const noexcept override ; // Override Container member
 
-  using Container::Size; // Override Container member
+  int Size()const noexcept override ;// Override Container member
 
-  using Container::Clear; // Override Container member
+  void Clear() override; // Override Container member
 
 protected:
 
