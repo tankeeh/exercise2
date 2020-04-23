@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
     template <typename Data>
-    class StackLst : virtual public Stack<Data>, virtual protected List<Data>{
+    class StackLst : virtual public Stack<Data>,protected List<Data>{
 
     private:
 
@@ -75,6 +75,10 @@ namespace lasd {
         /* ************************************************************************ */
 
         // Specific member functions (inherited from Container)
+
+        using Container::Empty;
+
+        using Container::Size;
 
         using List<Data>::Clear;  // Override Container member
 

@@ -4,7 +4,7 @@ project(exercise2)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(exercise2
-        zmytest/RandomGens/RandomValues.cpp
         zlasdtest/test.cpp
+        zmytest/test.cpp
         main.cpp
 )
