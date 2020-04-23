@@ -117,10 +117,10 @@ return 0;
 
 template <typename Data>
 bool QueueVec<Data>::Empty() const noexcept {
-return 1;
+return (this->size==0);
 }
 
 template <typename Data>
 int QueueVec<Data>::Size() const noexcept {
-return 0;
+return (this->tail - this->head);
 }

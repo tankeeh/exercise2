@@ -3,11 +3,11 @@
 
 // Specific member functions (Container)
 
-bool Container::Empty() const noexcept {
+inline bool Container::Empty() const noexcept {
     return (size==0);
 }
 
- int Container::Size() const noexcept {
+inline int Container::Size() const noexcept {
     return size;
 }
 // ...

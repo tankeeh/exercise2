@@ -137,6 +137,7 @@ int StackVec<Data>::Size() const noexcept {
     return this->index;
 }
 
+
 template <typename Data>
 void StackVec<Data>::Clear(){
     Vector<Data>::Clear();

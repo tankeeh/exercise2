@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class StackVec: virtual public Stack<Data>, protected Vector<Data> { // Should extend Stack<Data> and Vector<Data>
+class StackVec: virtual public Stack<Data>,virtual protected Vector<Data> { // Should extend Stack<Data> and Vector<Data>
 
 private:
 
@@ -84,7 +84,7 @@ public:
 
   void Clear() override; // Override Container member
 
-protected:
+  protected:
 
   void Expand(); // Accessory function
   void Reduce(); // Accessory function
