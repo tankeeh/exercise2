@@ -13,7 +13,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class List : virtual protected LinearContainer<Data>, virtual protected SearchableContainer<Data> {
+class List : virtual public LinearContainer<Data>, virtual protected SearchableContainer<Data> {
 
 private:
 

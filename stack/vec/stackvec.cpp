@@ -36,15 +36,14 @@ StackVec<Data>::StackVec(unsigned int newsize):Vector<Data>(newsize){
 
 template <typename Data>
 void StackVec<Data>::Push(Data& item){
+    if(this->size != 0) {
+        if (this->index == this->size / 2) Expand();
+        else if (this->index == this->size / 4) Reduce();
+    }else Vector<Data>::Resize(2);
 
-if (this->index - 1 >= 0){
+
 this->elem[this->index] = item;
 this->index++;
-}
-else throw std::length_error("La Size del vettore e' 0. Allocare memoria al vettore.");
-
-if(this->index == this->size/2) Expand();
- else if(this->index == this->size/4) Reduce();
 
 }
 
@@ -52,14 +51,13 @@ if(this->index == this->size/2) Expand();
 template <typename Data>
 void StackVec<Data>::Push(Data&& item){
 
-    if (this->index - 1 >= 0){
-        this->elem[this->index] = std::move(item);
-        this->index++;
-    }
-    else throw std::length_error("La Size del vettore e' 0. Allocare memoria al vettore.");
+    if (this->size != 0){
+        if(this->index == this->size/2) Expand();
+        else if(this->index == this->size/4) Reduce();
+    }else Vector<Data>::Resize(2);
 
-    if(this->index == this->size/2) Expand();
-    else if(this->index == this->size/4) Reduce();
+    this->elem[this->index] = std::move(item);
+    this->index++;
 }
 
 
@@ -77,7 +75,9 @@ void StackVec<Data>::Pop() {
 //FUNZIONE DI TOP DALLO STACK
 template  <typename Data>
 Data StackVec<Data>::Top()const{
+    if(this->index -1 >= 0)
     return this->elem[this->index -1];
+    else throw std::length_error("Non ci sono elementi nello stack.");
 }
 
 template  <typename Data>

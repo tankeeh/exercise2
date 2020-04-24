@@ -80,7 +80,7 @@ namespace lasd {
 
         using Container::Size;
 
-        using List<Data>::Clear;  // Override Container member
+        using List<Data>::Clear;
 
     };
 

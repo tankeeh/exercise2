@@ -3,8 +3,8 @@
 #include "zlasdtest/test.hpp"
 #include "zmytest/test.hpp"
 
-#include "./stack/vec/stackvec.hpp"
-#include "./stack/lst/stacklst.hpp"
+//#include "./stack/vec/stackvec.hpp"
+//#include "./stack/lst/stacklst.hpp"
 #include "./queue/lst/queuelst.hpp"
 #include "./queue/vec/queuevec.hpp"
 
@@ -13,8 +13,10 @@ using namespace lasd;
 
 int main(){
 
-/**MENU' FINALE**/
 
+TestQueVec();
+/**MENU' FINALE**/
+/*
     char scelta = '0';
 
     while (scelta != 'e') {
@@ -45,7 +47,7 @@ int main(){
         }
     }
 
-
+*/
   return 0;
 
 }

@@ -2,9 +2,66 @@
 #include "test.hpp"
 #include <iostream>
 #include "../stack/vec/stackvec.hpp"
+#include "../queue/vec/queuevec.hpp"
 #include "../stack/lst/stacklst.hpp"
 
 
+
+void TestQueVec(){
+
+    lasd::QueueVec<int> coda;
+    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+
+    coda.Enqueue(10); // in questo punto il vettore dovrebbe resizarsi a 4
+    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+
+
+    coda.Enqueue(11); // in questo punto il vettore dovrebbe resizarsi a 8
+    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    std::cout<<"\n\n";
+    coda.print();
+
+    coda.Enqueue(12);
+    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    std::cout<<"\n\n";
+    coda.print();
+    std::cout<<"\n\n";
+
+    coda.Enqueue(13);
+    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    coda.Enqueue(14);
+    std::cout<<"\n\n";
+    coda.print();
+    std::cout<<"\n\n";
+
+    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    coda.Dequeue();
+    std::cout<<"\n\n";
+    coda.print();
+    std::cout<<"\n\n";
+
+    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    coda.Dequeue();
+    std::cout<<"\n\n";
+    coda.print();
+    std::cout<<"\n\n";
+
+    coda.Dequeue();
+    coda.Enqueue(18);
+    coda.Dequeue();
+    coda.Enqueue(19);
+    coda.Enqueue(20);
+    coda.Enqueue(21);
+
+    std::cout<<"\n\n";
+    coda.print();
+
+    //std::cout<<coda[2];
+
+
+
+
+}
 
 void StackVecInt() {
     std::cout<<"-- STACKVEC DI INTERI --";

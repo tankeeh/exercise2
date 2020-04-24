@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class QueueVec: virtual public Queue<Data>,virtual protected Vector<Data> { // Should extend Queue<Data> and Vector<Data>
+class QueueVec: virtual public Queue<Data>,virtual public Vector<Data> { //rimetti a protected l'estensione di Vector
 
 private:
 
@@ -80,6 +80,11 @@ public:
   int Size()const noexcept override ; // Override Container member
 
   using Container::Clear;  // Override Container member
+
+  /* **** */
+  Data Capacity() const noexcept ;
+  void Ordinate();
+  void Print();
 
 protected:
 

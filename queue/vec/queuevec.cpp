@@ -3,8 +3,34 @@
 
 /* ************************************************************************** */
 
+template <typename Data>
+void QueueVec<Data>::Print() {
+    Vector<Data>::print();
+}
 // ...
+/** FUNZIONI ACCESSORIE **/
 
+template <typename Data>
+Data QueueVec<Data>:: Capacity() const noexcept {
+    return Vector<Data>::Size();
+}
+
+template <typename Data>
+void QueueVec<Data>:: Ordinate(){
+    if(this->tail < this ->head){
+        QueueVec<Data> vectemp = *this;
+        int i = this->head;
+        int j=0;
+        while( (i +1)%this->size != this->tail){
+            vectemp.elem[j] = this->elem[i];
+            i = (i+1)%this->size;
+            j++;
+        }
+        *this = std::move(vectemp);
+
+        std::cout<<"STRUTTURA ORDINATA";
+    }
+}
 
 
 /** CONSTRUCTOR QUEUEVEC **/
@@ -29,12 +55,12 @@ QueueVec<Data>::QueueVec(QueueVec&& queue) noexcept:Vector<Data>(queue){
 
 template <typename Data>
 void QueueVec<Data>::Expand() {
-
+    Vector<Data>::Resize(this->size*2);
 }
 
 template <typename Data>
 void QueueVec<Data>::Reduce() {
-
+    Vector<Data>::Resize(this->size/2);
 }
 
 /** ASSIGNMENT QUEUEVEC **/
@@ -78,25 +104,37 @@ bool QueueVec<Data>:: operator!=(QueueVec& queue){
 template <typename Data>
 void  QueueVec<Data>::Enqueue(Data& item){
 
+    if(this->tail !=  0) {
+        if (abs(this->tail - this->head) == this->size / 2) Expand();
+        else if (abs(this->tail - this->head) == this->size / 4) Reduce();
+    }
     this->elem[tail] = item;
     tail = (tail + 1)%(this->size);
 
+    Ordinate();
 }
 
 //FUNZIONE DI ENQUEUE (MOVE)
 template <typename Data>
 void  QueueVec<Data>::Enqueue(Data&& item){
-
+    if(this->tail != 0) {
+        if (abs(this->tail - this->head) == this->size / 4) Reduce();
+        else if (abs(this->tail - this->head) == this->size / 2) Expand();
+    }
     this->elem[tail] = std::move(item);
     tail = (tail + 1)%(this->size);
 
+    Ordinate();
 }
 
 //FUNZIONE DI DEQUEUE
 template <typename Data>
 void  QueueVec<Data>::Dequeue(){
+
     this->elem[this->head] = Data();
     this->head = (this->head+1)%this->size;
+
+    if (abs(this->tail - this->head) == this->size / 4) Reduce();
 }
 
 //FUNZIONE DI HEAD
