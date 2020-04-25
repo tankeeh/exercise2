@@ -10,37 +10,39 @@
 void TestQueVec(){
 
     lasd::QueueVec<int> coda;
-    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    std::cout<<"CAPACITA' DEL VETTORE 1 : "<<coda.Capacity()<<std::endl;
 
     coda.Enqueue(10); // in questo punto il vettore dovrebbe resizarsi a 4
-    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    coda.Dequeue();
+
+    std::cout<<"CAPACITA' DEL VETTORE 2 : "<<coda.Capacity()<<std::endl;
 
 
     coda.Enqueue(11); // in questo punto il vettore dovrebbe resizarsi a 8
-    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    std::cout<<"CAPACITA' DEL VETTORE 3: "<<coda.Capacity()<<std::endl;
     std::cout<<"\n\n";
     coda.print();
 
     coda.Enqueue(12);
-    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    std::cout<<"CAPACITA' DEL VETTORE 4: "<<coda.Capacity()<<std::endl;
     std::cout<<"\n\n";
     coda.print();
     std::cout<<"\n\n";
 
     coda.Enqueue(13);
-    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    std::cout<<"CAPACITA' DEL VETTORE 5 : "<<coda.Capacity()<<std::endl;
     coda.Enqueue(14);
     std::cout<<"\n\n";
     coda.print();
     std::cout<<"\n\n";
 
-    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    std::cout<<"CAPACITA' DEL VETTORE 6: "<<coda.Capacity()<<std::endl;
     coda.Dequeue();
     std::cout<<"\n\n";
     coda.print();
     std::cout<<"\n\n";
 
-    std::cout<<"CAPACITA' DEL VETTORE : "<<coda.Capacity()<<std::endl;
+    std::cout<<"CAPACITA' DEL VETTORE 7: "<<coda.Capacity()<<std::endl;
     coda.Dequeue();
     std::cout<<"\n\n";
     coda.print();

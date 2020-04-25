@@ -21,7 +21,7 @@ void QueueVec<Data>:: Ordinate(){
         QueueVec<Data> vectemp = *this;
         int i = this->head;
         int j=0;
-        while( (i +1)%this->size != this->tail){
+        while( (i +1)%this->size != this->head){
             vectemp.elem[j] = this->elem[i];
             i = (i+1)%this->size;
             j++;
@@ -117,9 +117,9 @@ void  QueueVec<Data>::Enqueue(Data& item){
 //FUNZIONE DI ENQUEUE (MOVE)
 template <typename Data>
 void  QueueVec<Data>::Enqueue(Data&& item){
-    if(this->tail != 0) {
-        if (abs(this->tail - this->head) == this->size / 4) Reduce();
-        else if (abs(this->tail - this->head) == this->size / 2) Expand();
+    if(this->tail != this->head) {
+        if (abs(this->tail - this->head) == this->size/4) Reduce();
+        else if (abs(this->tail - this->head) == this->size/2) Expand();
     }
     this->elem[tail] = std::move(item);
     tail = (tail + 1)%(this->size);
@@ -130,11 +130,14 @@ void  QueueVec<Data>::Enqueue(Data&& item){
 //FUNZIONE DI DEQUEUE
 template <typename Data>
 void  QueueVec<Data>::Dequeue(){
+    //controllo se tail != head? altrimenti throw exception
+    if (tail!=head) { //controlla passo passo se va bene
+        if (abs(this->tail - this->head) == this->size / 4) Reduce();
+        else if (abs(this->tail - this->head) == this->size / 2) Expand();
 
-    this->elem[this->head] = Data();
-    this->head = (this->head+1)%this->size;
-
-    if (abs(this->tail - this->head) == this->size / 4) Reduce();
+        this->elem[this->head] = Data();
+        this->head = (this->head + 1) % this->size;
+    }
 }
 
 //FUNZIONE DI HEAD
