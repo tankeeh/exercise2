@@ -1,5 +1,5 @@
 
-#include "test.hpp"
+//#include "test.hpp"
 #include <iostream>
 #include "../stack/vec/stackvec.hpp"
 #include "../queue/vec/queuevec.hpp"
@@ -10,60 +10,143 @@
 void TestQueVec(){
 
     lasd::QueueVec<int> coda;
-    std::cout<<"CAPACITA' DEL VETTORE 1 : "<<coda.Capacity()<<std::endl;
+    std::cout<<"CAPACITA' DEL VETTORE INIZIALE  : "<<coda.Capacity()<<std::endl;
 
-    coda.Enqueue(10); // in questo punto il vettore dovrebbe resizarsi a 4
-    coda.Dequeue();
+    std::cout<<"Enqueue : "<<std::endl;
+    coda.Enqueue(1);
+    coda.print();
+    std::cout<<"\n\n";
 
+
+    std::cout<<"Dequeue : "<<std::endl;
+    try{ coda.Dequeue(); }catch(std::length_error ex){ std::clog<<ex.what();}
+    std::cout<<"CAPACITA' DEL VETTORE  : "<<coda.Capacity()<<std::endl;
+    coda.print();
+    std::cout<<"\n\n";
+
+
+
+
+
+    std::cout<<"Enqueue : "<<std::endl;
+    coda.Enqueue(2);
     std::cout<<"CAPACITA' DEL VETTORE 2 : "<<coda.Capacity()<<std::endl;
+    coda.print();
+    std::cout<<"\n\n";
 
 
-    coda.Enqueue(11); // in questo punto il vettore dovrebbe resizarsi a 8
-    std::cout<<"CAPACITA' DEL VETTORE 3: "<<coda.Capacity()<<std::endl;
+
+    std::cout<<"Enqueue : "<<std::endl;
+    coda.Enqueue(3);
+    std::cout<<"CAPACITA' DEL VETTORE 3 : "<<coda.Capacity()<<std::endl;
     std::cout<<"\n\n";
     coda.print();
+    std::cout<<"\n\n";
 
-    coda.Enqueue(12);
+
+    std::cout<<"Enqueue : "<<std::endl;
+    coda.Enqueue(4);
     std::cout<<"CAPACITA' DEL VETTORE 4: "<<coda.Capacity()<<std::endl;
-    std::cout<<"\n\n";
+    coda.Enqueue(5);
+    std::cout<<"CAPACITA' DEL VETTORE 5: "<<coda.Capacity()<<std::endl;
     coda.print();
     std::cout<<"\n\n";
 
-    coda.Enqueue(13);
-    std::cout<<"CAPACITA' DEL VETTORE 5 : "<<coda.Capacity()<<std::endl;
-    coda.Enqueue(14);
-    std::cout<<"\n\n";
-    coda.print();
-    std::cout<<"\n\n";
 
+    std::cout<<"Dequeue : "<<std::endl;
+    try{ coda.Dequeue(); }catch(std::length_error ex){ std::clog<<ex.what();}
     std::cout<<"CAPACITA' DEL VETTORE 6: "<<coda.Capacity()<<std::endl;
-    coda.Dequeue();
-    std::cout<<"\n\n";
     coda.print();
     std::cout<<"\n\n";
 
+
+
+    std::cout<<"Dequeue : "<<std::endl;
+    try{ coda.Dequeue(); }catch(std::length_error ex){ std::clog<<ex.what();}
     std::cout<<"CAPACITA' DEL VETTORE 7: "<<coda.Capacity()<<std::endl;
-    coda.Dequeue();
-    std::cout<<"\n\n";
     coda.print();
     std::cout<<"\n\n";
 
-    coda.Dequeue();
+    /*
+    try{ coda.Dequeue(); }catch(std::length_error ex){ std::clog<<ex.what();}
     coda.Enqueue(18);
-    coda.Dequeue();
+    try{ coda.Dequeue(); }catch(std::length_error ex){ std::clog<<ex.what();}
     coda.Enqueue(19);
     coda.Enqueue(20);
     coda.Enqueue(21);
 
     std::cout<<"\n\n";
     coda.print();
-
-    //std::cout<<coda[2];
-
-
+    */
 
 
 }
+
+void TestStackVec(){
+
+        lasd::StackVec<int> stack;
+        //std::cout<<"CAPACITA' DEL VETTORE INIZIALE  : "<<coda.Capacity()<<std::endl;
+
+        std::cout<<"Push : "<<std::endl;
+        stack.Push(1);
+        stack.print();
+        std::cout<<"\n\n";
+
+
+        std::cout<<"Dequeue : "<<std::endl;
+        try{ stack.Pop(); }catch(std::length_error ex){ std::clog<<ex.what();}
+        //std::cout<<"CAPACITA' DEL VETTORE  : "<<stack.Capacity()<<std::endl;
+        stack.print();
+        std::cout<<"\n\n";
+
+
+
+
+
+        std::cout<<"Enqueue : "<<std::endl;
+    stack.Push(2);
+        //std::cout<<"CAPACITA' DEL VETTORE 2 : "<<coda.Capacity()<<std::endl;
+    stack.print();
+        std::cout<<"\n\n";
+
+
+
+        std::cout<<"Enqueue : "<<std::endl;
+    stack.Push(3);
+        //std::cout<<"CAPACITA' DEL VETTORE 3 : "<<coda.Capacity()<<std::endl;
+        std::cout<<"\n\n";
+    stack.print();
+        std::cout<<"\n\n";
+
+
+        std::cout<<"Enqueue : "<<std::endl;
+    stack.Push(4);
+        //std::cout<<"CAPACITA' DEL VETTORE 4: "<<coda.Capacity()<<std::endl;
+    stack.Push(5);
+        //std::cout<<"CAPACITA' DEL VETTORE 5: "<<coda.Capacity()<<std::endl;
+    stack.print();
+        std::cout<<"\n\n";
+
+
+        std::cout<<"Dequeue : "<<std::endl;
+        try{ stack.Pop(); }catch(std::length_error ex){ std::clog<<ex.what();}
+        //std::cout<<"CAPACITA' DEL VETTORE 6: "<<stack.Capacity()<<std::endl;
+        stack.print();
+        std::cout<<"\n\n";
+
+
+
+        std::cout<<"Dequeue : "<<std::endl;
+        try{ stack.Pop(); }catch(std::length_error ex){ std::clog<<ex.what();}
+        //std::cout<<"CAPACITA' DEL VETTORE 7: "<<coda.Capacity()<<std::endl;
+        stack.print();
+        std::cout<<"\n\n";
+
+
+
+
+    }
+
 
 void StackVecInt() {
     std::cout<<"-- STACKVEC DI INTERI --";

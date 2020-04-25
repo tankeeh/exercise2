@@ -3,7 +3,7 @@
 #include "zlasdtest/test.hpp"
 #include "zmytest/test.hpp"
 
-//#include "./stack/vec/stackvec.hpp"
+#include "./stack/vec/stackvec.hpp"
 //#include "./stack/lst/stacklst.hpp"
 #include "./queue/lst/queuelst.hpp"
 #include "./queue/vec/queuevec.hpp"
@@ -14,6 +14,7 @@ using namespace lasd;
 int main(){
 
 
+//TestStackVec();
 TestQueVec();
 /**MENU' FINALE**/
 /*

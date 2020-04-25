@@ -18,18 +18,23 @@ Data QueueVec<Data>:: Capacity() const noexcept {
 template <typename Data>
 void QueueVec<Data>:: Ordinate(){
     if(this->tail < this ->head){
-        QueueVec<Data> vectemp = *this;
+        Data* vectemp = new Data[this->size];
         int i = this->head;
         int j=0;
         while( (i +1)%this->size != this->head){
-            vectemp.elem[j] = this->elem[i];
+            vectemp[j] = this->elem[i];
             i = (i+1)%this->size;
             j++;
         }
-        *this = std::move(vectemp);
 
-        std::cout<<"STRUTTURA ORDINATA";
-    }
+
+        delete[] this->elem;
+        std::swap(this->elem,vectemp);
+        this->tail = abs(this->tail - this->head);
+        this->head=0;
+
+        std::cout<<"STRUTTURA ORDINATA\n";
+   }
 }
 
 
@@ -55,12 +60,18 @@ QueueVec<Data>::QueueVec(QueueVec&& queue) noexcept:Vector<Data>(queue){
 
 template <typename Data>
 void QueueVec<Data>::Expand() {
+    Ordinate();
     Vector<Data>::Resize(this->size*2);
+    std::cout<<"\nSize raddoppiata"<<std::endl;
+
 }
 
 template <typename Data>
 void QueueVec<Data>::Reduce() {
+    Ordinate();
     Vector<Data>::Resize(this->size/2);
+    std::cout<<"\nSize dimezzata"<<std::endl;
+
 }
 
 /** ASSIGNMENT QUEUEVEC **/
@@ -104,40 +115,39 @@ bool QueueVec<Data>:: operator!=(QueueVec& queue){
 template <typename Data>
 void  QueueVec<Data>::Enqueue(Data& item){
 
-    if(this->tail !=  0) {
+    if(this->tail != 0) {
         if (abs(this->tail - this->head) == this->size / 2) Expand();
         else if (abs(this->tail - this->head) == this->size / 4) Reduce();
     }
     this->elem[tail] = item;
     tail = (tail + 1)%(this->size);
 
-    Ordinate();
+    //Ordinate();
 }
 
 //FUNZIONE DI ENQUEUE (MOVE)
 template <typename Data>
 void  QueueVec<Data>::Enqueue(Data&& item){
-    if(this->tail != this->head) {
-        if (abs(this->tail - this->head) == this->size/4) Reduce();
-        else if (abs(this->tail - this->head) == this->size/2) Expand();
+    if(this->tail != this->head){
+        if (abs(this->tail - this->head) >= this->size / 2) Expand();
+        //else if (abs(this->tail - this->head) == this->size / 4) Reduce();
     }
     this->elem[tail] = std::move(item);
     tail = (tail + 1)%(this->size);
 
-    Ordinate();
 }
 
 //FUNZIONE DI DEQUEUE
 template <typename Data>
 void  QueueVec<Data>::Dequeue(){
-    //controllo se tail != head? altrimenti throw exception
-    if (tail!=head) { //controlla passo passo se va bene
-        if (abs(this->tail - this->head) == this->size / 4) Reduce();
-        else if (abs(this->tail - this->head) == this->size / 2) Expand();
+    if (tail != head) {
+        //if (abs(this->tail - this->head) >= this->size / 2) Expand();
+        if (abs(this->tail - this->head) <= this->size / 4) Reduce();
 
         this->elem[this->head] = Data();
         this->head = (this->head + 1) % this->size;
     }
+    else throw std::length_error("Non ci sono elementi nello stack.");
 }
 
 //FUNZIONE DI HEAD

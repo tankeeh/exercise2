@@ -7,6 +7,7 @@
 void mytest();
 
 void TestQueVec();
+void TestStackVec();
 
 // ...
 
