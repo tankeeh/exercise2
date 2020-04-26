@@ -4,7 +4,6 @@
 #include "zmytest/test.hpp"
 
 #include "./stack/vec/stackvec.hpp"
-//#include "./stack/lst/stacklst.hpp"
 #include "./queue/lst/queuelst.hpp"
 #include "./queue/vec/queuevec.hpp"
 
