@@ -22,7 +22,6 @@ private:
 
 protected:
 
-  // using List<Data>::???;
     using List<Data>::size;
     using List<Data>::node;
 
@@ -77,8 +76,8 @@ public:
     using Container::Empty;
 
     using Container::Size;
-
-    using List<Data>::Clear; // Override Container member
+    /* ************** */
+    using List<Data>::Clear;
 
 };
 

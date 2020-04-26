@@ -21,8 +21,7 @@ namespace lasd {
         // ...
 
     protected:
-
-        // using List<Data>::???;
+        
         using List<Data>::size;
         using List<Data>::node;
         // ...

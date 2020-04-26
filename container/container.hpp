@@ -120,8 +120,7 @@ namespace lasd {
         operator=(const TestableContainer &) = delete; // Copy assignment of abstract types should not be possible.
 
         // Move assignment
-        TestableContainer &operator=(
-                const TestableContainer &&) noexcept = delete;  // Move assignment of abstract types should not be possible.
+        TestableContainer &operator=(const TestableContainer &&) noexcept = delete;  // Move assignment of abstract types should not be possible.
 
         /* ************************************************************************ */
 

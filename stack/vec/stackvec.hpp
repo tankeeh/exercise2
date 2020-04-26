@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class StackVec: virtual public Stack<Data>,virtual public Vector<Data> { //rimetti a protected l'estensione di Vector
+class StackVec: virtual public Stack<Data>,virtual protected Vector<Data> {
 
 private:
 

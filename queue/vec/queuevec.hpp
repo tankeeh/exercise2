@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class QueueVec: virtual public Queue<Data>,virtual public Vector<Data> { //rimetti a protected l'estensione di Vector
+class QueueVec: virtual public Queue<Data>,virtual protected Vector<Data> {
 
 private:
 
@@ -22,7 +22,6 @@ private:
 
 protected:
 
-  // using Vector<Data>::???;
   using Vector<Data>::size;
   using Vector<Data>::elem;
   int head = 0;
@@ -85,7 +84,6 @@ public:
 
   //funzioni accessorie
   Data Capacity() const noexcept ;
-  void print();
 
 protected:
 

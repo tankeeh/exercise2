@@ -12,10 +12,6 @@ Data QueueVec<Data>:: Capacity() const noexcept {
     return Vector<Data>::Size();
 }
 
-template <typename Data>
-void QueueVec<Data>::print() {
-    Vector<Data>::print();
-}
 
 /** CONSTRUCTOR QUEUEVEC **/
 //COSTRUTTORE DI DEFAULT

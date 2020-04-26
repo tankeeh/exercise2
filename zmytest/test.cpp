@@ -32,7 +32,7 @@ void TestQueVec(){
     coda.Enqueue(1);
 
 
-    coda.print();
+
     std::cout<<"\n\n";
 
     lasd::QueueVec<int> coda2;
@@ -45,7 +45,6 @@ void TestQueVec(){
     coda2.Enqueue(1);
 
 
-    coda2.print();
 
     if(coda != coda2) std::cout<<"sono diversi!";
     else std::cout<<"sono uguali!";
@@ -151,7 +150,6 @@ void TestStackVec(){
 
 
 //
-    stack.print();
     std::cout<<"\n\n";
 
     lasd::StackVec<int> stack2;
@@ -163,7 +161,7 @@ void TestStackVec(){
     stack2.Push(1);
 
 
-    stack2.print();
+
 
     if(stack == stack2) std::cout<<"sono uguali!";
     else std::cout<<"sono diversi!";
@@ -192,6 +190,7 @@ void StackVecInt() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -238,10 +237,8 @@ void StackVecInt() {
                 std::cout<<"Pulizia dello stack...";
                 stack.Clear();
                 break;
-            case '8':
-                std::cout << " ** TEST CLEAR ** \n\n";
-                std::cout<<"Pulizia dello stack...";
-                stack.Clear();
+            case 'b':
+                return;
                 break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
@@ -269,6 +266,7 @@ void StackVecFloat() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -315,6 +313,9 @@ void StackVecFloat() {
                 std::cout<<"Pulizia dello stack...";
                 stack.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -341,6 +342,7 @@ void StackVecString() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -387,6 +389,9 @@ void StackVecString() {
                 std::cout<<"Pulizia dello stack...";
                 stack.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -413,6 +418,7 @@ void StackVecDouble() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -459,6 +465,9 @@ void StackVecDouble() {
                 std::cout<<"Pulizia dello stack...";
                 stack.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -486,6 +495,7 @@ void StackListInt() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -532,6 +542,9 @@ void StackListInt() {
                 std::cout<<"Pulizia dello stack...";
                 stack.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -558,6 +571,7 @@ void StackListFloat() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -604,6 +618,9 @@ void StackListFloat() {
                 std::cout<<"Pulizia dello stack...";
                 stack.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -630,6 +647,7 @@ void StackListString() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -676,6 +694,9 @@ void StackListString() {
                 std::cout<<"Pulizia dello stack...";
                 stack.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -702,6 +723,7 @@ void StackListDouble() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -748,6 +770,9 @@ void StackListDouble() {
                 std::cout<<"Pulizia dello stack...";
                 stack.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -771,6 +796,7 @@ void StackVec() {
         std::cout << "4.stack di double. \n";
 
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -792,6 +818,9 @@ void StackVec() {
             case '4':
                 std::cout << " ** STACK DI DOUBLE ** \n\n";
                 StackVecDouble();
+                break;
+            case 'b':
+                return;
                 break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
@@ -815,6 +844,7 @@ void StackList(){
         std::cout << "4.stack di double. \n";
 
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -837,6 +867,9 @@ void StackList(){
                 std::cout << " ** STACK DI DOUBLE ** \n\n";
                 StackListDouble();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 break;
@@ -858,7 +891,7 @@ void TestStack(){
         std::cout << "2.stack tramite lista. \n";
 
 
-
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -872,6 +905,9 @@ void TestStack(){
             case '2':
                 std::cout << " ** STACK LISTA ** \n\n";
                 StackList();
+                break;
+            case 'b':
+                return;
                 break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
@@ -913,6 +949,7 @@ void QueueVecInt(){
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -957,6 +994,9 @@ void QueueVecInt(){
                 std::cout<<"Pulizia della queue...";
                 queue.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -984,6 +1024,7 @@ void QueueVecFloat() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1028,6 +1069,9 @@ void QueueVecFloat() {
                 std::cout<<"Pulizia della queue... \n\n";
                 queue.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -1054,6 +1098,7 @@ void QueueVecString() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1098,6 +1143,9 @@ void QueueVecString() {
                 std::cout<<"Pulizia della  queue... \n\n";
                 queue.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -1124,6 +1172,7 @@ void QueueVecDouble() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1168,6 +1217,9 @@ void QueueVecDouble() {
                 std::cout<<"Pulizia della queue...";
                 queue.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -1196,6 +1248,7 @@ void QueueListInt() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1240,6 +1293,9 @@ void QueueListInt() {
                 std::cout<<"Pulizia della queue...";
                 queue.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -1266,6 +1322,7 @@ void QueueListFloat() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1310,6 +1367,9 @@ void QueueListFloat() {
                 std::cout<<"Pulizia della queue...";
                 queue.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -1336,6 +1396,7 @@ void QueueListString() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1380,6 +1441,9 @@ void QueueListString() {
                 std::cout<<"Pulizia della queue...";
                 queue.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -1406,6 +1470,7 @@ void QueueListDouble() {
         std::cout << "6. SIZE\n";
         std::cout << "7. CLEAR\n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1450,6 +1515,9 @@ void QueueListDouble() {
                 std::cout<<"Pulizia della queue...";
                 queue.Clear();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 exit(0);
@@ -1473,7 +1541,7 @@ void QueueVec(){
         std::cout << "3.queuevec di stringhe. \n";
         std::cout << "4.queuevec di double. \n";
 
-
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1496,6 +1564,9 @@ void QueueVec(){
                 std::cout << " ** QUEUEVEC DI DOUBLE ** \n\n";
                 QueueVecDouble();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 break;
@@ -1517,7 +1588,7 @@ void QueueList(){
         std::cout << "3.queuelist di stringhe. \n";
         std::cout << "4.queuelist di double. \n";
 
-
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1540,6 +1611,9 @@ void QueueList(){
                 std::cout << " ** QUEUELIST DI DOUBLE ** \n\n";
                 QueueListDouble();
                 break;
+            case 'b':
+                return;
+                break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
                 break;
@@ -1561,6 +1635,7 @@ void TestQueue(){
         std::cout << "1.queue tramite vettore. \n";
         std::cout << "2.queue tramite lista. \n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "\n e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1574,6 +1649,9 @@ void TestQueue(){
             case '2':
                 std::cout << " ** QUEUE LISTA ** \n\n";
                 QueueList();
+                break;
+            case 'b':
+                return;
                 break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
@@ -1605,6 +1683,7 @@ void mytest() {
         std::cout << "1. per testare uno stack. \n";
         std::cout << "2. per testare una coda. \n";
 
+        std::cout<<"\nb. tornare indietro.\n";
         std::cout << "e. per uscire \n\n\n";
 
         std::cin >> scelta;
@@ -1618,6 +1697,9 @@ void mytest() {
             case '2':
                 std::cout << " ** TEST CODE ** \n\n";
                 TestQueue();
+                break;
+            case 'b':
+                return;
                 break;
             case 'e':
                 std::cout << " Program is gonna stop... \n";
