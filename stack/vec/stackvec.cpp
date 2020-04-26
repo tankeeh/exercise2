@@ -30,7 +30,7 @@ StackVec<Data>::StackVec(const StackVec& stack):Vector<Data>(stack){
 
 template <typename Data>
 StackVec<Data>::StackVec(StackVec&& stack) noexcept:Vector<Data>(std::move(stack)){
-    this->index = stack.index;
+    std::swap(this->index,stack.index);
 }
 
 
@@ -66,7 +66,7 @@ void StackVec<Data>::Push(Data&& item){
 
 template <typename Data>
 void StackVec<Data>::Pop() {
-    if (this->index -1 >= 0) {
+    if (this->index > 0) {
 
         this->elem[index - 1] = Data();
         this->index--;
@@ -78,7 +78,7 @@ void StackVec<Data>::Pop() {
 //FUNZIONE DI TOP DALLO STACK
 template  <typename Data>
 Data StackVec<Data>::Top()const{
-    if(this->index -1 >= 0)
+    if(this->index > 0)
     return this->elem[this->index -1];
     else throw std::length_error("Non ci sono elementi nello stack.");
 }
@@ -98,19 +98,16 @@ Data StackVec<Data>::TopNPop(){
 template <typename Data>
 StackVec<Data>& StackVec<Data>:: operator=(const StackVec& stack){
     Vector<Data>::operator=(stack);
+    this->index = stack.index;
     return *this;
 }
 
 template <typename Data>
 StackVec<Data>& StackVec<Data>:: operator=(StackVec&& stack){
     Vector<Data>::operator=(std::move(stack));
+    std::swap(this->index,stack.index);
     return *this;
 }
-
-
-
-
-
 
 
 

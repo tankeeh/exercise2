@@ -29,7 +29,7 @@ QueueVec<Data>::QueueVec(const QueueVec& queue):Vector<Data>(queue){
 }
 
 template <typename Data>
-QueueVec<Data>::QueueVec(QueueVec&& queue) noexcept:Vector<Data>(queue){
+QueueVec<Data>::QueueVec(QueueVec&& queue) noexcept:Vector<Data>(std::move(queue)){
     std::swap(this->head,queue.head);
     std::swap(this->tail,queue.tail);
 }
@@ -47,7 +47,6 @@ void QueueVec<Data>::Expand() {
 
         this->tail = index + this->size/2;
 
-        std::cout<<"\nSize raddoppiata"<<std::endl;
 }
 
 template <typename Data>
@@ -64,7 +63,6 @@ void QueueVec<Data>::Reduce(){
     this->head = 0;
     this->tail = tmp;
     Vector<Data>::operator=(std::move(vectmp));
-    std::cout<<"\nSize dimezzata"<<std::endl;
 }
 
 /** ASSIGNMENT QUEUEVEC **/
@@ -93,13 +91,13 @@ QueueVec<Data>& QueueVec<Data>:: operator=(QueueVec&& queue){
 
 template <typename Data>
 bool QueueVec<Data>:: operator==(QueueVec& queue){
-    if(this->head == queue.head)  return Vector<Data>::operator==(queue);
+    if(this->head == queue.head && this->Size()==queue.Size())  return Vector<Data>::operator==(queue);
     else{
         if(this->Size() == queue.Size()){
             bool temp = true;
             int i= this->head;
             int j= queue.head;
-            while(temp == true && (i+1)%size<this->head){
+            while(temp == true && (i+1)%size!=this->tail){
                 if(this->elem[i] != queue.elem[j]) temp = false;
                 i=(i+1)%this->size;
                 j=(j+1)%queue.size;
@@ -112,7 +110,7 @@ bool QueueVec<Data>:: operator==(QueueVec& queue){
 
 template <typename Data>
 bool QueueVec<Data>:: operator!=(QueueVec& queue){
-    return Vector<Data>::operator!=(queue);
+    return (!(QueueVec<Data>::operator==(queue)));
 }
 
 
@@ -154,7 +152,7 @@ void  QueueVec<Data>::Dequeue(){
         this->head = (this->head + 1) % this->size;
         if ( Size() < this->size/4) Reduce();
     }
-    else throw std::length_error("Non ci sono elementi nello stack.");
+    else throw std::length_error("Non ci sono elementi nella queue.");
 }
 
 //FUNZIONE DI HEAD
@@ -162,7 +160,7 @@ template <typename Data>
 Data QueueVec<Data>::Head() const {
     if(this->head != this->tail)
     return this->elem[this->head];
-    else throw std::length_error("Non ci sono elementi.");
+    else throw std::length_error("Non ci sono elementi nella queue.");
 }
 
 //FUNZIONE DI HEADNDEQUEUE
@@ -190,6 +188,7 @@ return (this->size - this->head + this->tail)%this->size;
 template <typename Data>
 void QueueVec<Data>::Clear() {
     Vector<Data>::Clear();
+    Vector<Data>::Resize(2);
     this->head=0;
     this->tail=0;
 }

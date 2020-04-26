@@ -11,31 +11,46 @@
 void TestQueVec(){
 
 
+
+
+
     lasd::QueueVec<int> coda;
     coda.Enqueue(1);
     coda.Enqueue(1);
     coda.Enqueue(1);
+    coda.Enqueue(2);
     coda.Enqueue(1);
     coda.Enqueue(1);
+    coda.Enqueue(5);
+    coda.Dequeue();
+    coda.Dequeue();
+    coda.Enqueue(5);
     coda.Enqueue(1);
-    coda.Enqueue(1);
+    coda.Dequeue();
+    coda.Dequeue();
+    coda.Enqueue(5);
     coda.Enqueue(1);
 
 
     coda.print();
     std::cout<<"\n\n";
 
+    lasd::QueueVec<int> coda2;
+    coda2.Enqueue(1);
+    coda2.Enqueue(1);
+    coda2.Enqueue(5);
+    coda2.Enqueue(5);
+    coda2.Enqueue(1);
+    coda2.Enqueue(5);
+    coda2.Enqueue(1);
 
-    coda.Dequeue();
-    coda.Dequeue();
-    coda.Dequeue();
-    coda.Enqueue(1);
-    coda.Enqueue(1);
 
+    coda2.print();
 
-    coda.print();
+    if(coda != coda2) std::cout<<"sono diversi!";
+    else std::cout<<"sono uguali!";
 
-/*
+    /*
     lasd::QueueVec<int> coda;
     std::cout<<"CAPACITA' DEL VETTORE INIZIALE  : "<<coda.Capacity()<<std::endl;
 
@@ -121,33 +136,37 @@ void TestQueVec(){
 
 void TestStackVec(){
 
-        lasd::StackVec<int> stack;
+    lasd::StackVec<int> stack;
+    stack.Push(1);
+    stack.Push(1);
+    stack.Push(1);
+    stack.Push(1);
+    stack.Push(1);
+    stack.Push(1);
+    stack.Push(1);
+    stack.Push(1);
+    stack.Pop();
+    stack.Pop();
+    stack.Pop();
 
-        std::cout<<"capacity del vettore : "<<stack.Capacity()<<std::endl;
 
-        std::cout<<"Push : "<<std::endl;
-        stack.Push(1);
-
-    std::cout<<"capacity del vettore : "<<stack.Capacity();
-
-    std::cout<<"Push : "<<std::endl;
-    stack.Push(1);
-    std::cout<<"Push : "<<std::endl;
-    stack.Push(1);
-    std::cout<<"Push : "<<std::endl;
-    stack.Push(1);
-    std::cout<<"Push : "<<std::endl;
-    stack.Push(1);
-    std::cout<<"Push : "<<std::endl;
-    stack.Push(1);
-    std::cout<<"Push : "<<std::endl;
-    stack.Push(1);
-    std::cout<<"Push : "<<std::endl;
-    stack.Push(1);
-    std::cout<<"Push : "<<std::endl;
-    stack.Push(1);
-
+//
     stack.print();
+    std::cout<<"\n\n";
+
+    lasd::StackVec<int> stack2;
+    stack2.Push(1);
+    stack2.Push(1);
+    stack2.Push(1);
+    stack2.Push(1);
+    stack2.Push(1);
+    stack2.Push(1);
+
+
+    stack2.print();
+
+    if(stack == stack2) std::cout<<"sono uguali!";
+    else std::cout<<"sono diversi!";
 
     }
 
@@ -878,14 +897,14 @@ void TestStack(){
 
 /**CODE**/
 
-void QueueVecInt() {
+void QueueVecInt(){
     std::cout<<"-- QUEUEVEC DI INTERI --";
     char scelta = '0';
 
     lasd::QueueVec<int> queue;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sul seguente queuevec : \n";
+        std::cout << "\nChe operazione vuoi effettuare sul seguente queuevec : \n";
         std::cout << "1. ENQUEUE  \n";
         std::cout << "2. DEQUEUE\n";
         std::cout << "3. HEADnDEQUEUE\n";
@@ -956,7 +975,7 @@ void QueueVecFloat() {
     lasd::QueueVec<int> queue;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sul seguente queuevec : \n";
+        std::cout << "\nChe operazione vuoi effettuare sul seguente queuevec : \n";
         std::cout << "1. ENQUEUE  \n";
         std::cout << "2. DEQUEUE\n";
         std::cout << "3. HEADnDEQUEUE\n";
