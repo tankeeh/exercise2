@@ -14,8 +14,8 @@ using namespace lasd;
 int main(){
 
 
-//TestStackVec();
-TestQueVec();
+TestStackVec();
+//TestQueVec();
 
 /**MENU' FINALE**/
 /*

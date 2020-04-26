@@ -3,38 +3,19 @@
 
 /* ************************************************************************** */
 
-template <typename Data>
-void QueueVec<Data>::Print() {
-    Vector<Data>::print();
-}
-// ...
-/** FUNZIONI ACCESSORIE **/
 
+// ...
+
+/** FUNZIONI ACCESSORIE **/
 template <typename Data>
 Data QueueVec<Data>:: Capacity() const noexcept {
     return Vector<Data>::Size();
 }
 
 template <typename Data>
-void QueueVec<Data>:: Ordinate(){
-    //if(this->tail < this ->head){
-        Data* vectemp = new Data[this->size];
-        int i = this->head;
-        int j=0;
-        while( i != this->tail){
-            vectemp[j] = this->elem[i];
-            i = (i+1)%this->size;
-            j++;
-        }
-
-        delete[] this->elem;
-        std::swap(this->elem,vectemp);
-        this->tail = j;
-        this->head=0;
-        std::cout<<"STRUTTURA ORDINATA\n";
-   //}
+void QueueVec<Data>::print() {
+    Vector<Data>::print();
 }
-
 
 /** CONSTRUCTOR QUEUEVEC **/
 //COSTRUTTORE DI DEFAULT
@@ -44,7 +25,7 @@ QueueVec<Data>:: QueueVec():Vector<Data>(2){};
 template <typename Data>
 QueueVec<Data>::QueueVec(const QueueVec& queue):Vector<Data>(queue){
     this->head = queue.head;
-    this->tail = queue.head;
+    this->tail = queue.tail;
 }
 
 template <typename Data>
@@ -58,7 +39,6 @@ QueueVec<Data>::QueueVec(QueueVec&& queue) noexcept:Vector<Data>(queue){
 
 template <typename Data>
 void QueueVec<Data>::Expand() {
-    //if(this->tail < this->head)Ordinate();
     Vector<Data>::Resize(this->size*2);
 
     int index;
@@ -72,13 +52,7 @@ void QueueVec<Data>::Expand() {
 
 template <typename Data>
 void QueueVec<Data>::Reduce(){
-    //if(this->tail < this->head || this->head >= this->size/2)Ordinate();
-    /*if(this->head==this->tail){
-        this->head=0;
-        this->tail=0;
-    }*/
 
-    //Vector<Data>::Resize(this->size/2);
     Vector<Data> vectmp(this->size/2);
     int tmp = 0;
     int ind = this->head;
@@ -91,7 +65,6 @@ void QueueVec<Data>::Reduce(){
     this->tail = tmp;
     Vector<Data>::operator=(std::move(vectmp));
     std::cout<<"\nSize dimezzata"<<std::endl;
-
 }
 
 /** ASSIGNMENT QUEUEVEC **/
@@ -101,7 +74,7 @@ QueueVec<Data>& QueueVec<Data>:: operator=(const QueueVec& queue){
         this->Clear();
         Vector<Data>::operator=(queue);
         this->head = queue.head;
-        this->tail = queue.head;
+        this->tail = queue.tail;
         return *this;
 }
 
@@ -147,26 +120,30 @@ bool QueueVec<Data>:: operator!=(QueueVec& queue){
 
 //FUNZIONE DI ENQUEUE (COPY)
 template <typename Data>
-void  QueueVec<Data>::Enqueue(Data& item){
+void QueueVec<Data>::Enqueue(Data& item){
 
-    this->elem[tail] = item;
-    tail = (tail + 1)%(this->size);
-    //if(this->tail != this->head){
+    if(this->size != 0) {
+
+        this->elem[tail] = item;
+        tail = (tail + 1) % (this->size);
         if (this->head == this->tail) Expand();
-        //if (Size() >= this->size/2) Expand();
-    //}
+
+    }else Vector<Data>::Resize(2);
+
 }
 
 //FUNZIONE DI ENQUEUE (MOVE)
 template <typename Data>
 void  QueueVec<Data>::Enqueue(Data&& item){
 
+    if(this->size != 0) {
+
     this->elem[tail] = std::move(item);
     tail = (tail + 1)%(this->size);
-    //if(this->tail != this->head){
-        if (this->head == this->tail) Expand();
-        //if (Size() >= this->size/2) Expand();
-    //}
+    if (this->head == this->tail) Expand();
+
+    }else Vector<Data>::Resize(2);
+
 }
 
 //FUNZIONE DI DEQUEUE
@@ -208,4 +185,11 @@ return (this->tail==this->head);
 template <typename Data>
 int QueueVec<Data>::Size() const noexcept {
 return (this->size - this->head + this->tail)%this->size;
+}
+
+template <typename Data>
+void QueueVec<Data>::Clear() {
+    Vector<Data>::Clear();
+    this->head=0;
+    this->tail=0;
 }

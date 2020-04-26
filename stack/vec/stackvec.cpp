@@ -3,6 +3,11 @@
 
 /* ************************************************************************** */
 
+template <typename Data>
+Data StackVec<Data>::Capacity() const noexcept {
+    return Vector<Data>::Size();
+}
+
 // ...
 /** RIDUZIONE ED ESPANSIONE DEL VETTORE**/
 
@@ -30,15 +35,14 @@ StackVec<Data>::StackVec(StackVec&& stack) noexcept:Vector<Data>(std::move(stack
 
 
 template <typename Data>
-StackVec<Data>::StackVec(unsigned int newsize):Vector<Data>(newsize){
+StackVec<Data>::StackVec():Vector<Data>(2){
 }
 
 
 template <typename Data>
 void StackVec<Data>::Push(Data& item){
     if(this->size != 0) {
-        if (this->index == this->size / 2) Expand();
-        else if (this->index == this->size / 4) Reduce();
+        if (this->index == this->size) Expand();
     }else Vector<Data>::Resize(2);
 
 
@@ -52,8 +56,7 @@ template <typename Data>
 void StackVec<Data>::Push(Data&& item){
 
     if (this->size != 0){
-        if(this->index == this->size/2) Expand();
-        else if(this->index == this->size/4) Reduce();
+        if(this->index == this->size ) Expand();
     }else Vector<Data>::Resize(2);
 
     this->elem[this->index] = std::move(item);

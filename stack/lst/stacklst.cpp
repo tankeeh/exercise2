@@ -10,14 +10,12 @@
 
 //COPY CONSTRUCTOR DI STACKLST
 template <typename Data>
- StackLst<Data>::StackLst(const StackLst& stack):List<Data>(stack){}  //initializer list serve per fare operazioni prima di chiamare una funzione
-                                                                      //ma solo con i costruttori
+ StackLst<Data>::StackLst(const StackLst& stack):List<Data>(stack){}  //used initializer
 
 
 //MOVE CONSTRUCTOR DI STACKLST
 template <typename Data>
-StackLst<Data>::StackLst(StackLst&& stack):List<Data>(std::move(stack)){}  //initializer list serve per fare operazioni prima di chiamare una funzione
-                                                                           //ma solo con i costruttori
+StackLst<Data>::StackLst(StackLst&& stack):List<Data>(std::move(stack)){}  //used initializer
 
 
 /** ASSIGNMENT DI STACKLST **/
@@ -57,14 +55,16 @@ void StackLst<Data>::Push(Data&& item) noexcept {
 //FUNZIONE DI POP DALLO STACK
 template  <typename Data>
 void StackLst<Data>::Pop(){
-    this->RemoveFromFront();
+    if(this->size != 0)this->RemoveFromFront();
+    else throw std::length_error("Non ci sono elementi nella lista");
 }
 
 
 //FUNZIONE DI TOP DALLO STACK
 template  <typename Data>
 Data StackLst<Data>::Top()const{
-    return this->Front();
+    if(this->size!= 0)return this->Front();
+    else throw std::length_error("Non ci sono elementi nella lista");
 }
 
 //FUNZIONE DI TOPNPOP DALLO STACK

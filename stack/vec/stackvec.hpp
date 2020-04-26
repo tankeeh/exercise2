@@ -22,7 +22,6 @@ private:
 
 protected:
 
-  // using Vector<Data>::???;
   using Vector<Data>::size;
   using Vector<Data>::elem;
   unsigned int index = 0;
@@ -31,9 +30,7 @@ protected:
 public:
 
   // Default constructor
-  StackVec() = default;
-
-  StackVec(unsigned int newsize);
+  StackVec();
 
   // Copy constructor
   StackVec( const StackVec& stack);
@@ -84,10 +81,13 @@ public:
 
   void Clear() override; // Override Container member
 
+  Data Capacity() const noexcept ;
+
   protected:
 
   void Expand(); // Accessory function
   void Reduce(); // Accessory function
+
 
 };
 

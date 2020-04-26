@@ -6,14 +6,12 @@
 
 //COPY CONSTRUCTOR DI QUEUELST
 template <typename Data>
-QueueLst<Data>::QueueLst(const QueueLst& queue):List<Data>(queue){}  //initializer list serve per fare operazioni prima di chiamare una funzione
-//ma solo con i costruttori
+QueueLst<Data>::QueueLst(const QueueLst& queue):List<Data>(queue){}  //used initializer
 
 
 //MOVE CONSTRUCTOR DI QUEUELST
 template <typename Data>
-QueueLst<Data>::QueueLst(QueueLst&& queue):List<Data>(std::move(queue)){}  //initializer list serve per fare operazioni prima di chiamare una funzione
-//ma solo con i costruttori
+QueueLst<Data>::QueueLst(QueueLst&& queue):List<Data>(std::move(queue)){}  //used initializer
 
 
 /** ASSIGNMENT DI QUEUELST **/
@@ -53,20 +51,22 @@ void QueueLst<Data>::Enqueue(Data&& item) noexcept {
 //FUNZIONE DI DEQUEUE DALLA QUEUE
 template  <typename Data>
 void QueueLst<Data>::Dequeue(){
-    this->RemoveFromFront();
+    if(this->size != 0) this->RemoveFromFront();
+    else throw std::length_error("Non ci sono elementi nella lista");
 }
 
 
 //FUNZIONE DI HEAD DELLA QUEUE
 template  <typename Data>
 Data QueueLst<Data>::Head()const{
-    return this->Front();
+    if(this->size!=0 )return this->Front();
+    else throw std::length_error("Non ci sono elementi nella lista");
 }
 
 //FUNZIONE DI HEADNDEQUEUE DELLA QUEUE
 template  <typename Data>
 Data QueueLst<Data>::HeadNDequeue(){
-    return this->FrontNRemove();
+    return List<Data>::FrontNRemove();
 }
 
 //OPERATOR DI UGUAGLIANZA TRA QUEUE

@@ -79,12 +79,13 @@ public:
 
   int Size()const noexcept override ; // Override Container member
 
-  using Container::Clear;  // Override Container member
+  void Clear() override ;  // Override Container member
 
   /* **** */
+
+  //funzioni accessorie
   Data Capacity() const noexcept ;
-  void Ordinate();
-  void Print();
+  void print();
 
 protected:
 
