@@ -14,11 +14,8 @@ using namespace lasd;
 int main(){
 
 
-//TestStackVec();
-TestQueVec();
-
 /**MENU' FINALE**/
-/*
+
     char scelta = '0';
 
     while (scelta != 'e') {
@@ -48,7 +45,6 @@ TestQueVec();
                 std::cout << " Hai inserito un codice non valido! riprovare : ";
         }
     }
-*/
 
   return 0;
 

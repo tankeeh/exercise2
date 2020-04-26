@@ -183,7 +183,7 @@ void StackVecInt() {
     lasd::StackVec<int> stack;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sul seguente stackvec : \n";
+        std::cout << "\nChe operazione vuoi effettuare sul seguente stackvec : \n";
         std::cout << "1. PUSH  \n";
         std::cout << "2. POP\n";
         std::cout << "3. TOPnPOP\n";
@@ -260,7 +260,7 @@ void StackVecFloat() {
     lasd::StackVec<float> stack;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sul seguente stackvec : \n";
+        std::cout << "\nChe operazione vuoi effettuare sul seguente stackvec : \n";
         std::cout << "1. PUSH  \n";
         std::cout << "2. POP\n";
         std::cout << "3. TOPnPOP\n";
@@ -332,7 +332,7 @@ void StackVecString() {
     lasd::StackVec<std::string> stack;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sul seguente stackvec : \n";
+        std::cout << "\nChe operazione vuoi effettuare sul seguente stackvec : \n";
         std::cout << "1. PUSH  \n";
         std::cout << "2. POP\n";
         std::cout << "3. TOPnPOP\n";
@@ -404,7 +404,7 @@ void StackVecDouble() {
     lasd::StackVec<double> stack;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sul seguente stackvec : \n";
+        std::cout << "\nChe operazione vuoi effettuare sul seguente stackvec : \n";
         std::cout << "1. PUSH  \n";
         std::cout << "2. POP\n";
         std::cout << "3. TOPnPOP\n";
@@ -477,7 +477,7 @@ void StackListInt() {
     lasd::StackLst<int> stack;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sulla seguente stacklist: \n";
+        std::cout << "\nChe operazione vuoi effettuare sulla seguente stacklist: \n";
         std::cout << "1. PUSH  \n";
         std::cout << "2. POP\n";
         std::cout << "3. TOPnPOP\n";
@@ -549,7 +549,7 @@ void StackListFloat() {
     lasd::StackLst<float> stack;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sulla seguente stacklist : \n";
+        std::cout << "\nChe operazione vuoi effettuare sulla seguente stacklist : \n";
         std::cout << "1. PUSH  \n";
         std::cout << "2. POP\n";
         std::cout << "3. TOPnPOP\n";
@@ -621,7 +621,7 @@ void StackListString() {
     lasd::StackLst<std::string> stack;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sulla seguente stacklist : \n";
+        std::cout << "\nChe operazione vuoi effettuare sulla seguente stacklist : \n";
         std::cout << "1. PUSH  \n";
         std::cout << "2. POP\n";
         std::cout << "3. TOPnPOP\n";
@@ -693,7 +693,7 @@ void StackListDouble() {
     lasd::StackLst<double> stack;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sulla seguente stacklist : \n";
+        std::cout << "\nChe operazione vuoi effettuare sulla seguente stacklist : \n";
         std::cout << "1. PUSH  \n";
         std::cout << "2. POP\n";
         std::cout << "3. TOPnPOP\n";
@@ -1045,7 +1045,7 @@ void QueueVecString() {
     lasd::QueueVec<std::string> queue;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sul seguente queuevec : \n";
+        std::cout << "\nChe operazione vuoi effettuare sul seguente queuevec : \n";
         std::cout << "1. ENQUEUE  \n";
         std::cout << "2. DEQUEUE\n";
         std::cout << "3. HEADnDEQUEUE\n";
@@ -1115,7 +1115,7 @@ void QueueVecDouble() {
     lasd::QueueVec<double> queue;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sul seguente queuevec : \n";
+        std::cout << "\nChe operazione vuoi effettuare sul seguente queuevec : \n";
         std::cout << "1. ENQUEUE  \n";
         std::cout << "2. DEQUEUE\n";
         std::cout << "3. HEADnDEQUEUE\n";
@@ -1187,7 +1187,7 @@ void QueueListInt() {
     lasd::QueueLst<int> queue;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sulla seguente queuelist : \n";
+        std::cout << "\nChe operazione vuoi effettuare sulla seguente queuelist : \n";
         std::cout << "1. ENQUEUE  \n";
         std::cout << "2. DEQUEUE\n";
         std::cout << "3. HEADnDEQUEUE\n";
@@ -1257,7 +1257,7 @@ void QueueListFloat() {
     lasd::QueueLst<float> queue;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sulla seguente queuelist : \n";
+        std::cout << "\nChe operazione vuoi effettuare sulla seguente queuelist : \n";
         std::cout << "1. ENQUEUE  \n";
         std::cout << "2. DEQUEUE\n";
         std::cout << "3. HEADnDEQUEUE\n";
@@ -1327,7 +1327,7 @@ void QueueListString() {
     lasd::QueueLst<std::string> queue;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sulla seguente queuelist : \n";
+        std::cout << "\nChe operazione vuoi effettuare sulla seguente queuelist : \n";
         std::cout << "1. ENQUEUE  \n";
         std::cout << "2. DEQUEUE\n";
         std::cout << "3. HEADnDEQUEUE\n";
@@ -1397,7 +1397,7 @@ void QueueListDouble() {
     lasd::QueueLst<double> queue;
 
     while (scelta != 'e') {
-        std::cout << "Che operazione vuoi effettuare sulla seguente queuelist : \n";
+        std::cout << "\nChe operazione vuoi effettuare sulla seguente queuelist : \n";
         std::cout << "1. ENQUEUE  \n";
         std::cout << "2. DEQUEUE\n";
         std::cout << "3. HEADnDEQUEUE\n";
